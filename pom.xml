@@ -54,6 +54,11 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
+                <configuration>
+                    <systemProperties>
+                        <karate.options>--tags ~@ignore</karate.options>
+                    </systemProperties>            
+                </configuration>
             </plugin>            
         </plugins>        
     </build>       
