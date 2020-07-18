@@ -9,7 +9,7 @@ Feature: Articles
         When method Post
         Then status 200
         And match response.article.title == 'Bla bla'
-@debug
+
     Scenario: Create and delete article
         Given path 'articles'
         And request {"article": {"tagList": [],"title": "Delete Article","description": "test test","body": "body"}}
