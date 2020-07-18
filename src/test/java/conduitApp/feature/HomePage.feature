@@ -1,4 +1,4 @@
-
+@debug
 Feature: Tests for the home page
 
     Background: Define URL
@@ -8,8 +8,9 @@ Feature: Tests for the home page
         Given path 'tags'
         When method Get
         Then status 200
-        And match response.tags contains ['cars', 'baby']
+        And match response.tags contains ['test', 'dragons']
         And match response.tags !contains 'truck'
+        And match response.tags contains any ['fish', 'dog', 'SIDA']
         And match response.tags == "#array"
         And match each response.tags == "#string"
 
@@ -20,3 +21,9 @@ Feature: Tests for the home page
         Then status 200
         And match response.articles == '#[10]'
         And match response.articlesCount == 500
+        And match response.articlesCount != 100
+        And match response == { "articles": "#array", "articlesCount": 500}
+        And match response.articles[0].createdAt contains '2020'
+        And match response.articles[*].favoritesCount contains 1
+        And match response..bio contains null
+        And match each response..following == false
