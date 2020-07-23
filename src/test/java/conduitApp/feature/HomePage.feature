@@ -8,9 +8,6 @@ Feature: Tests for the home page
         Given path 'tags'
         When method Get
         Then status 200
-        And match response.tags contains ['test', 'dragons']
-        And match response.tags !contains 'truck'
-        And match response.tags contains any ['fish', 'dog', 'SIDA']
         And match response.tags == "#array"
         And match each response.tags == "#string"
 
@@ -27,3 +24,6 @@ Feature: Tests for the home page
         And match response.articles[*].favoritesCount contains 1
         And match response..bio contains null
         And match each response..following == false
+        And match each response..following == '#boolean'
+        And match each response..favoritesCount == '#number'
+        And match each response..bio == '##string'
