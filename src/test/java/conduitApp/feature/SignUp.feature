@@ -1,22 +1,40 @@
-@ignore
+
 Feature: Sign Up new user
 
     Background: Preconditions
-        Given url apiUrl
-
+        * def dataGenerator = Java.type('helpers.DataGenerator')
+        * def timeValidator = read('classpath:helpers/timeValidator.js')
+        * url apiUrl
+@debug
     Scenario: New user Sign Up
-        Given def userData = {"email":"KarateUser3@test.com", "username":"KarateUser32"}
+        * def randomEmail = dataGenerator.getRandomEmail()
+        * def randomUsername = dataGenerator.getRandomUsername()
 
         Given path 'users'
         And request
         """
             {
                 "user": {
-                    "email": #(userData.email),
+                    "email": #(randomEmail),
                     "password": "123Karate123",
-                    "username": #(userData.username)
+                    "username": #(randomUsername)
                 }
             }
         """
         When method Post
         Then status 200
+        And match response ==
+        """
+            {
+                "user": {
+                    "id": "#number",
+                    "email": #(randomEmail),
+                    "createdAt": "#? timeValidator(_)",
+                    "updatedAt": "#? timeValidator(_)",
+                    "username": #(randomUsername),
+                    "bio": null,
+                    "image": null,
+                    "token": "#string"
+                }
+            }
+        """
