@@ -6,7 +6,9 @@ import scala.concurrent.duration._
 
 class PerfTest extends Simulation {
 
-  val protocol = karateProtocol()
+  val protocol = karateProtocol(
+    "/api/articles/{articleId}" -> Nil
+  )
 
 //   protocol.nameResolver = (req, ctx) => req.getHeader("karate-name")
 
