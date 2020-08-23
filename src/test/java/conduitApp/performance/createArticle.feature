@@ -8,6 +8,9 @@ Feature: Articles
         * set articleRequestBody.article.description = dataGenerator.getRandomArticleValues().description
         * set articleRequestBody.article.body = dataGenerator.getRandomArticleValues().body
 
+        * def sleep = function(ms){ java.lang.Thread.sleep(ms) }
+        * def pause = karate.get('__gatling.pause', sleep)
+
 
     Scenario: Create and delete article
         Given path 'articles'
@@ -15,6 +18,8 @@ Feature: Articles
         When method Post
         Then status 200
         * def articleId = response.article.slug
+
+        * pause(5000)
 
         Given path 'articles',articleId
         When method Delete
