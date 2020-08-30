@@ -14,7 +14,7 @@ class PerfTest extends Simulation {
     "/api/articles/{articleId}" -> Nil
   )
 
-//   protocol.nameResolver = (req, ctx) => req.getHeader("karate-name")
+  protocol.nameResolver = (req, ctx) => req.getHeader("karate-name")
 
   val csvFeeder = csv("articles.csv").circular
   val tokenFeeder = Iterator.continually(Map("token" -> CreateTokens.getNextToken))

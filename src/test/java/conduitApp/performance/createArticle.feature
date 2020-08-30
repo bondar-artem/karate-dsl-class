@@ -16,12 +16,13 @@ Feature: Articles
         * configure headers = {"Authorization": #('Token ' + __gatling.token)}
         Given path 'articles'
         And request articleRequestBody
+        And header karate-name = 'Create Article'
         When method Post
         Then status 200
         * def articleId = response.article.slug
 
-        # * pause(5000)
+        * pause(5000)
 
-        # Given path 'articles',articleId
-        # When method Delete
-        # Then status 200
+        Given path 'articles',articleId
+        When method Delete
+        Then status 200
