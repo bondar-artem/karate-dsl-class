@@ -13,6 +13,7 @@ Feature: Articles
 
 
     Scenario: Create and delete article
+        * configure headers = {"Authorization": #('Token ' + __gatling.token)}
         Given path 'articles'
         And request articleRequestBody
         When method Post
