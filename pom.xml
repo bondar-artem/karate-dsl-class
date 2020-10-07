@@ -43,6 +43,11 @@
             <artifactId>karate-gatling</artifactId>
             <version>${karate.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>8.4.1.jre11</version>
         </dependency>		
     </dependencies>
 

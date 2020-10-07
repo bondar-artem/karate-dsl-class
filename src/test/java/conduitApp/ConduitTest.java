@@ -18,7 +18,7 @@ class ConduitTest {
     
     @Test
     void testParallel() {
-        Results results = Runner.parallel(getClass(), 5);
+        Results results = Runner.parallel(getClass(), 1);
         generateReport(results.getReportDir());
         assertEquals(0, results.getFailCount(), results.getErrorMessages());
     }
