@@ -1,3 +1,4 @@
+@ignore
 Feature: Articles
 
     Background: Define URL

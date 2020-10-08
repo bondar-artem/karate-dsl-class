@@ -57,7 +57,7 @@ Feature: Tests for the home page
         When method Get
         Then status 200
         And match response.articles[0].favoritesCount == result
-
+@ignore
     Scenario: Retry call
         * configure retry = { count: 10, interval: 5000 }
         

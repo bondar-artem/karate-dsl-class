@@ -9,8 +9,8 @@ function fn() {
   }
 
   if (env == 'dev') {
-    config.userEmail = 'karate@test.com'
-    config.userPassword = 'karate123'
+    config.userEmail = 'kar1@test.com'
+    config.userPassword = 'Karate123'
   } 
   if (env == 'qa') {
     config.userEmail = 'karate2@test.com'
