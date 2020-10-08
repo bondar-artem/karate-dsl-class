@@ -1,0 +1,11 @@
+version: "3.8"
+services: 
+    karate-tests:
+        image: karate-tests
+        build: 
+            context: .
+            dockerfile: ./Dockerfile
+        volumes: 
+            - ./target:/usr/src/app/target
+            - ~/.m2:/root/.m2
+        command: mvn test
