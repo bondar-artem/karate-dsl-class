@@ -4,6 +4,7 @@ Feature: Tests for the home page
     Background: Define URL
         Given url apiUrl
 
+
     Scenario: Get all tags
         Given path 'tags'
         When method Get
@@ -18,7 +19,7 @@ Feature: Tests for the home page
         Given path 'articles'
         When method Get
         Then status 200
-        And match response == { "articles": "#[10]", "articlesCount": 500}
+        And match response == { "articles": "#[10]", "articlesCount": 10}
         And match each response.articles ==
         """
             {
