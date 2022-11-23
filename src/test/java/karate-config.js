@@ -13,7 +13,7 @@ function fn() {
     config.userPassword = 'Karate123'
   } 
   if (env == 'qa') {
-    config.userEmail = 'karate2@test.com'
+    config.userEmail = 'karate2-2@test.com'
     config.userPassword = 'Karate456'
   }
 

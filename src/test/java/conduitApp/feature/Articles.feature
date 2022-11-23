@@ -5,12 +5,13 @@ Feature: Articles
         * url apiUrl
         * def articleRequestBody = read('classpath:conduitApp/json/newArticleRequest.json')
         * def dataGenerator = Java.type('helpers.DataGenerator')
-        * set articleRequestBody.article.title = dataGenerator.getRandomArticleValues().title
-        * set articleRequestBody.article.description = dataGenerator.getRandomArticleValues().description
-        * set articleRequestBody.article.body = dataGenerator.getRandomArticleValues().body
+        * def randomValues = dataGenerator.getRandomArticleValues()
+        * set articleRequestBody.article.title = randomValues.title
+        * set articleRequestBody.article.description = randomValues.description
+        * set articleRequestBody.article.body = randomValues.body
 
 
-    Scenario: Create a new article
+   Scenario: Create a new article
         Given path 'articles'
         And request articleRequestBody
         When method Post
