@@ -5,10 +5,9 @@ Feature: Articles
         * url apiUrl
         * def articleRequestBody = read('classpath:conduitApp/json/newArticleRequest.json')
         * def dataGenerator = Java.type('helpers.DataGenerator')
-        * def randomValues = dataGenerator.getRandomArticleValues()
-        * set articleRequestBody.article.title = randomValues.title
-        * set articleRequestBody.article.description = randomValues.description
-        * set articleRequestBody.article.body = randomValues.body
+        * set articleRequestBody.article.title = dataGenerator.getRandomArticleValues().title
+        * set articleRequestBody.article.description = dataGenerator.getRandomArticleValues().description
+        * set articleRequestBody.article.body = dataGenerator.getRandomArticleValues().body
 
 
    Scenario: Create a new article
@@ -33,7 +32,7 @@ Feature: Articles
 
         Given path 'articles',articleId
         When method Delete
-        Then status 200
+        Then status 204
 
         Given params { limit: 10, offset: 0}
         Given path 'articles'
