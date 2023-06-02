@@ -1,4 +1,4 @@
-@ignore
+@performance
 Feature: Articles
 
     Background: Define URL
