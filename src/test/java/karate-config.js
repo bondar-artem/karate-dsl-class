@@ -5,7 +5,7 @@ function fn() {
     env = 'dev';
   }
   var config = {
-	  apiUrl: 'https://conduit.productionready.io/api/'
+	  apiUrl: 'https://api.realworld.io/api/'
   }
 
   if (env == 'dev') {
