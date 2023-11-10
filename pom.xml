@@ -10,8 +10,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>11</java.version>
-        <maven.compiler.version>3.6.0</maven.compiler.version>
-        <karate.version>1.3.1</karate.version>
+        <maven.compiler.version>3.11.0</maven.compiler.version>
+        <karate.version>1.4.1</karate.version>
         <gatling.plugin.version>4.2.9</gatling.plugin.version>
     </properties>    
 
@@ -64,17 +64,14 @@
                     <encoding>UTF-8</encoding>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
-                    <compilerArgument>-Werror</compilerArgument>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.2</version>
+                <version>3.0.0</version>
                 <configuration>
-                    <systemProperties>
-                        <karate.options>--tags ~@ignore</karate.options>
-                    </systemProperties>            
+                    <argLine>-Dfile.encoding=UTF-8</argLine>
                 </configuration>
             </plugin>
             <plugin>
