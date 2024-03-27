@@ -5,7 +5,7 @@ Feature: Articles
         * url apiUrl
         * def articleRequestBody = read('classpath:conduitApp/json/newArticleRequest.json')
         * def dataGenerator = Java.type('helpers.DataGenerator')
-        * set articleRequestBody.article.title = __gatling.Title
+        * set articleRequestBody.article.title = dataGenerator.getRandomArticleValues().title
         * set articleRequestBody.article.description = __gatling.Description
         * set articleRequestBody.article.body = dataGenerator.getRandomArticleValues().body
 
@@ -19,11 +19,11 @@ Feature: Articles
         And request articleRequestBody
         And header karate-name = 'Create Article'
         When method Post
-        Then status 200
+        Then status 201
         * def articleId = response.article.slug
 
         * pause(5000)
 
         Given path 'articles',articleId
         When method Delete
-        Then status 200
+        Then status 204

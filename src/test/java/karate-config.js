@@ -5,7 +5,7 @@ function fn() {
     env = 'dev';
   }
   var config = {
-	  apiUrl: 'https://api.realworld.io/api/'
+	  apiUrl: 'https://conduit-api.bondaracademy.com/api/'
   }
 
   if (env == 'dev') {
